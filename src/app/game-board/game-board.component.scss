@@ -1,0 +1,153 @@
+@import "./../../colors.scss";
+
+@mixin inset($color) {
+  box-shadow: inset 0 0 3px #fff, inset 0 0 10px #fff, inset 0 0 20px #fff, inset 0 0 40px $color,
+      0 0 70px $color, inset 0 0 80px $color;
+}
+
+/* Initial variables for @each rule
+Variables defines border color and position in order as follow: 
+$name $border-color $top $left $transform
+ */
+$colors:
+"paper" $paper-gradient $paper-shadow 0 0 translate(-50%, -50%), 
+"scissors" $scissors-gradient $scissors-shadow 0 100% translate(-50%, -50%), 
+"rock" $rock-gradient $rock-shadow 100% 50% translate(-50%, -50%);
+
+.game-board {
+  .initial-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 20vw;
+    height: 15vw;
+    position: relative;
+  }
+  .score-view {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .icon {
+    border-radius: 50%;
+    background: lightgray;
+    width: 10em;
+    height: 10em;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.3s ease-in-out;
+    position: relative;
+
+    @each $name, $color, $shadow, $top, $left, $transform in $colors {
+      &--#{$name}-initial {
+        @extend .icon;
+        border: 1em solid $color;
+        position: absolute;
+        top: $top;
+        left: $left;
+        transform: $transform;
+       
+        &:hover {
+          cursor: pointer;
+          @include inset($color);
+          img {
+            filter: brightness(500%);
+          }
+        }
+      }
+    }
+
+    @each $name, $color, $shadow in $colors {
+      &--#{$name}-score {
+        @extend .icon;
+        width: 12em;
+        height: 12em;
+        margin: 1em;
+        border: 1.2em solid $color;
+      }
+    }
+
+    @each $name, $color in $colors {
+      &--#{$name}--winner {
+        @extend .icon;
+        @include inset($color);
+        img {
+          filter: brightness(500%);
+        }
+      }
+    }
+  }
+
+  .bg-triangle {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+
+  .selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .winner-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2em;
+    h1 {
+      font-size: 48px;
+      margin: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1025px) { 
+  .game-board {
+    .initial-view {
+      width: 30vw;
+      height: 25vw;
+    }
+  }
+}
+
+@media screen and (max-width: 788px) {
+  .game-board {
+    .initial-view {
+      width: 30vw;
+      height: 25vw;
+    }
+    .icon {
+      width: 7em;
+      height: 7em;
+      border-width: .7em;
+    }
+    .score-view {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .winner-message {
+        order: 3;
+        width: 100%;
+        margin-top: 2em;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 488px) {
+  .game-board {
+    .initial-view {
+      width: 50vw;
+      height: 45vw;
+    }
+  }
+}

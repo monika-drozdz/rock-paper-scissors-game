@@ -1,0 +1,31 @@
+@import "./../../colors.scss";
+
+.custom-btn {
+  display: inline-block;
+  border: 2px solid $header-outline;
+  border-radius: 5px;
+  padding: 0.5em 1.5em;
+  text-decoration: none;
+  background: none;
+  color: $header-outline;
+  cursor: pointer;
+  text-align: center;
+  font-family: inherit;
+  font-size: 0.8em;
+  letter-spacing: 0.3em;
+  &:hover {
+    color: white;
+  }
+  &--play-again {
+    @extend .custom-btn;
+    background: lightgray;
+    color: $dark-text;
+    border: none;
+    padding: 1em 2.5em;
+    font-weight: 700;
+    box-shadow: 0 8px 1em rgba(0, 0, 0, 0.3);
+    &:hover {
+      color: $rock-shadow;
+    }
+  }
+}

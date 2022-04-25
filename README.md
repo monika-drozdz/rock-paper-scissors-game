@@ -1,27 +1,81 @@
-# RockPaperScissors
+# Frontend Mentor - Rock, Paper, Scissors solution
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
+This is a solution to the [Rock, Paper, Scissors challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Development server
+## Table of contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-## Code scaffolding
+## Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### The challenge
 
-## Build
+Users should be able to:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- View the optimal layout for the game depending on their device's screen size
+- Play Rock, Paper, Scissors against the computer
+- Maintain the state of the score after refreshing the browser _(optional)_
 
-## Running unit tests
+### Screenshot
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![](./screenshot.png)
 
-## Running end-to-end tests
+### Links
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-## Further help
+## My process
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- [Angular](https://angular.io/) - JS library
+- [SCSS](https://sass-lang.com/) - For styles
+
+### What I learned
+
+I used @each rule from SCSS for dynamically defining the border color and the position of repeating elements
+
+```scss
+$colors: "paper" $paper-gradient $paper-shadow 0 0 translate(-50%, -50%), "scissors"
+    $scissors-gradient $scissors-shadow 0 100% translate(-50%, -50%),
+  "rock" $rock-gradient $rock-shadow 100% 50% translate(-50%, -50%);
+
+@each $name, $color, $shadow, $top, $left, $transform in $colors {
+  &--#{$name}-initial {
+    @extend .icon;
+    border: 1em solid $color;
+    position: absolute;
+    top: $top;
+    left: $left;
+    transform: $transform;
+  }
+}
+```
+
+### Continued development
+
+In future development, I intend to:
+
+- Add sign in/sign up section
+- Use Anguar Material for dialog popups/forms.
+
+## Author
+
+- Portfolio - [Monika Dróżdż](https://monika-drozdz.github.io/my-portfolio/)
+- Frontend Mentor - [@monika-drozdz](https://www.frontendmentor.io/profile/monika-drozdz)
+- LinkedIn - [Monika Dróżdż](https://www.frontendmentor.io/profile/monika-drozdz)
+- GitHub - [@monika-drozdz](https://github.com/monika-drozdz)
