@@ -1,17 +1,17 @@
 <div class="game-board">
     <div class="initial-view" *ngIf="!isPicked; else scoreView">
-            <img src="./../../assets/images/bg-triangle.svg" alt="paper" class="bg-triangle"/>
-            <div class="icon--paper-initial" (click)="onPicked('paper')"><img src="./../../assets/images/icon-paper.svg" alt="paper"/></div>
-            <div class="icon--scissors-initial" (click)="onPicked('scissors')"><img src="./../../assets/images/icon-scissors.svg" alt="scissors"/></div>
-            <div class="icon--rock-initial" (click)="onPicked('rock')"><img src="./../../assets/images/icon-rock.svg" alt="rock"/></div>
+            <img src="../../assets/images/bg-triangle.svg" alt="paper" class="bg-triangle"/>
+            <div class="icon--paper-initial" (click)="onPicked('paper')"><img src="../../assets/images/icon-paper.svg" alt="paper"/></div>
+            <div class="icon--scissors-initial" (click)="onPicked('scissors')"><img src="../../assets/images/icon-scissors.svg" alt="scissors"/></div>
+            <div class="icon--rock-initial" (click)="onPicked('rock')"><img src="../../assets/images/icon-rock.svg" alt="rock"/></div>
     </div>
         <ng-template #scoreView >
             <div class="score-view">
                 <div class="selection">
                     <h3>YOU PICKED</h3>    
-                    <div *ngIf="selectedByUser === 'paper'" class="icon--paper-score" [ngClass]="userWin && !isDraw ? 'icon--paper--winner' : ''"><img src="./../../assets/images/icon-paper.svg" alt="paper"/></div>
-                    <div *ngIf="selectedByUser === 'scissors'" class="icon--scissors-score" [ngClass]="userWin && !isDraw ? 'icon--scissors--winner' : ''"><img src="./../../assets/images/icon-scissors.svg" alt="scissors"/></div>
-                    <div *ngIf="selectedByUser === 'rock'" class="icon--rock-score" [ngClass]="userWin && !isDraw ? 'icon--rock--winner' : ''"><img src="./../../assets/images/icon-rock.svg" alt="rock"/></div>
+                    <div *ngIf="selectedByUser === 'paper'" class="icon--paper-score" [ngClass]="userWin && !isDraw ? 'icon--paper--winner' : ''"><img src="../../assets/images/icon-paper.svg" alt="paper"/></div>
+                    <div *ngIf="selectedByUser === 'scissors'" class="icon--scissors-score" [ngClass]="userWin && !isDraw ? 'icon--scissors--winner' : ''"><img src="../../assets/images/icon-scissors.svg" alt="scissors"/></div>
+                    <div *ngIf="selectedByUser === 'rock'" class="icon--rock-score" [ngClass]="userWin && !isDraw ? 'icon--rock--winner' : ''"><img src="../../assets/images/icon-rock.svg" alt="rock"/></div>
                 </div>
                 <div class="winner-message" *ngIf="isPicked && selectedByUser && selectedByComputer">
                 <h1>{{ userWin ? 'YOU WIN' : (!isDraw && !userWin ? 'YOU LOSE' : 'ITS A DRAW!') }}</h1> 
@@ -19,9 +19,9 @@
                 </div>
                 <div class="selection" *ngIf="selectedByComputer">
                     <h3>THE HOUSE PICKED</h3>  
-                    <div *ngIf="selectedByComputer === 'paper'" class="icon--paper-score" [ngClass]="!userWin && !isDraw ? 'icon--paper--winner' : ''"><img src="./../../assets/images/icon-paper.svg" alt="paper"/></div>
-                    <div *ngIf="selectedByComputer === 'scissors'" class="icon--scissors-score" [ngClass]="!userWin && !isDraw ? 'icon--scissors--winner' : ''"><img src="./../../assets/images/icon-scissors.svg" alt="scissors"/></div>
-                    <div *ngIf="selectedByComputer === 'rock'" class="icon--rock-score" [ngClass]="!userWin && !isDraw ? 'icon--rock--winner' : ''"><img src="./../../assets/images/icon-rock.svg" alt="rock"/></div>
+                    <div *ngIf="selectedByComputer === 'paper'" class="icon--paper-score" [ngClass]="!userWin && !isDraw ? 'icon--paper--winner' : ''"><img src="../../assets/images/icon-paper.svg" alt="paper"/></div>
+                    <div *ngIf="selectedByComputer === 'scissors'" class="icon--scissors-score" [ngClass]="!userWin && !isDraw ? 'icon--scissors--winner' : ''"><img src="../../assets/images/icon-scissors.svg" alt="scissors"/></div>
+                    <div *ngIf="selectedByComputer === 'rock'" class="icon--rock-score" [ngClass]="!userWin && !isDraw ? 'icon--rock--winner' : ''"><img src="../../assets/images/icon-rock.svg" alt="rock"/></div>
                 </div>
             </div>
         </ng-template>
